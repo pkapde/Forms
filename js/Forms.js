@@ -43,3 +43,17 @@ tel.addEventListener("input", function () {
     telError.textContent = "telephone number is not Valid";
   }
 });
+
+//Password validation minimum 8 characters & Atleast one digit, special char, Upper case 
+const pwd = document.querySelector("#pwd");
+const pwdError = document.querySelector(".pwd-error");
+pwd.addEventListener("input", function () {
+  let pwdRegex = RegExp(
+    "^(?=.*[0-9])(?=.*[A-Z])(?=.*[^0-9a-zA-Z])(?!.*[^0-9a-zA-Z].*[^0-9a-zA-Z]).{8,}$"
+  );
+  if (pwdRegex.test(pwd.value)) {
+    pwdError.textContent = "";
+  } else {
+    pwdError.textContent = "password is not Valid";
+  }
+});
